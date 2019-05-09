@@ -51,3 +51,10 @@ simianarmy.chaos.notification.sourceEmail = {{getv "/simianarmy/chaos/notificati
 {{if exists "/simianarmy/chaos/notification/receiveremail" -}}
 simianarmy.chaos.notification.global.receiverEmail = {{getv "/simianarmy/chaos/notification/receiveremail"}}
 {{end -}}
+
+{{if exists "/simianarmy/chaos/ssh/user" -}}
+simianarmy.chaos.ssh.user = {{getv "/simianarmy/chaos/ssh/user"}}
+{{end -}}
+{{if exists "/simianarmy/chaos/ssh/key" -}}
+simianarmy.chaos.ssh.key = {{getv "/simianarmy/chaos/ssh/key"}}
+{{end -}}

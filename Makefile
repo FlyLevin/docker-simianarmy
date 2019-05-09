@@ -1,4 +1,4 @@
-IMAGE := mlafeldt/simianarmy
+IMAGE := levinding/simianarmy
 
 CHAOS_ASG_ENABLED := false
 CHAOS_LEASHED     := true
