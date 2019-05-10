@@ -3,8 +3,8 @@ FROM openjdk:8-alpine
 MAINTAINER Mathias Lafeldt <mathias.lafeldt@gmail.com>
 
 ENV CONFD_VERSION      0.16.0
-ARG GITHASH
-ARG SIMIANARMY_VERSION
+ARG GITHASH=111111
+ARG SIMIANARMY_VERSION=remote-run-done
 
 WORKDIR /simianarmy
 
