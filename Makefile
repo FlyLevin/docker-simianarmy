@@ -3,6 +3,7 @@ IMAGE := levinding/simianarmy
 CHAOS_ASG_ENABLED := false
 CHAOS_LEASHED     := true
 
+
 ENV := -e CONFD_OPTS="$(CONFD_OPTS)" \
 	-e SIMIANARMY_CLIENT_AWS_ACCOUNTKEY=$(AWS_ACCESS_KEY_ID) \
 	-e SIMIANARMY_CLIENT_AWS_SECRETKEY=$(AWS_SECRET_ACCESS_KEY) \
@@ -13,6 +14,8 @@ ENV := -e CONFD_OPTS="$(CONFD_OPTS)" \
 	-e SIMIANARMY_CHAOS_LEASHED=$(CHAOS_LEASHED) \
 	-e SIMIANARMY_CHAOS_TERMINATEONDEMAND_ENABLED=true
 
+ETCDENV = -e CONFD_OPTS="-backend=etcd -node=$(ETCDCTL_ENDPOINT)"
+
 build:
 	docker build --force-rm -t $(IMAGE) .
 
@@ -21,6 +24,9 @@ rebuild:
 
 run: build
 	docker run -it --rm -p 8080:8080 $(ENV) $(IMAGE)
+
+runetcd: build
+	docker run -it --rm -p 8080:8080 $(ETCDENV) $(IMAGE)
 
 # For debugging.
 shell: build
