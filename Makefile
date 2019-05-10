@@ -2,7 +2,7 @@ IMAGE := levinding/simianarmy
 
 CHAOS_ASG_ENABLED := false
 CHAOS_LEASHED     := true
-
+SIMIANARMY_VERSION = v2.5.3_new
 
 ENV := -e CONFD_OPTS="$(CONFD_OPTS)" \
 	-e SIMIANARMY_CLIENT_AWS_ACCOUNTKEY=$(AWS_ACCESS_KEY_ID) \
@@ -14,10 +14,12 @@ ENV := -e CONFD_OPTS="$(CONFD_OPTS)" \
 	-e SIMIANARMY_CHAOS_LEASHED=$(CHAOS_LEASHED) \
 	-e SIMIANARMY_CHAOS_TERMINATEONDEMAND_ENABLED=true
 
+GITHASH = `git ls-remote https://github.com/FlyLevin/SimianArmy.git|grep $(SIMIANARMY_VERSION)| cut -f 1`
+
 ETCDENV = -e CONFD_OPTS="-backend=etcd -node=$(ETCDCTL_ENDPOINT)"
 
 build:
-	docker build --force-rm -t $(IMAGE) .
+	docker build --build-arg GITHASH=$(GITHASH) --build-arg SIMIANARMY_VERSION=$(SIMIANARMY_VERSION) --force-rm -t $(IMAGE) .
 
 rebuild:
 	docker build --pull --no-cache --force-rm -t $(IMAGE) .
