@@ -2,7 +2,7 @@ FROM openjdk:8-alpine
 
 MAINTAINER Mathias Lafeldt <mathias.lafeldt@gmail.com>
 
-ENV SIMIANARMY_VERSION remote_ssh_nohup_fix
+ENV SIMIANARMY_VERSION v2.5.3_new
 ENV CONFD_VERSION      0.16.0
 
 WORKDIR /simianarmy
