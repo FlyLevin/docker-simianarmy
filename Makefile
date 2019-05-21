@@ -44,5 +44,5 @@ dev: build
 
 devetcd:
 	docker run -it --rm -p 8080:8080 \
-                -v "$(SIMIANARMY_CHECKOUT)/src:/simianarmy/src" \
-                $(ETCDENV) $(IMAGE) /bin/bash
+		-v "$(SIMIANARMY_CHECKOUT)/src:/simianarmy/src" \
+		$(ETCDENV) $(IMAGE) /bin/bash
