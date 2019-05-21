@@ -4,7 +4,7 @@ MAINTAINER Mathias Lafeldt <mathias.lafeldt@gmail.com>
 
 ENV CONFD_VERSION      0.16.0
 ARG GITHASH=111111
-ARG SIMIANARMY_VERSION=levin_remote_v0.01
+ARG SIMIANARMY_VERSION=v2.5.3_new
 
 WORKDIR /simianarmy
 
